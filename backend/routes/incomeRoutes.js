@@ -9,8 +9,8 @@ const {protect} = require("../middleware/authMiddleware")
 
 const router = express.Router();
 
-router.post("/add-income",protect, addIncome);
-router.get("/get-all-income", protect, getAllIncome);
+router.post("/add",protect, addIncome);
+router.get("/get", protect, getAllIncome);
 router.get("/download-excel", protect, downloadIncomeExcel);
 router.delete("/:id", protect, deleteIncome);
 

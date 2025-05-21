@@ -10,9 +10,9 @@ const {protect} = require("../middleware/authMiddleware")
 
 const router = express.Router();
 
-router.post("/add-expense",protect, addExpense);
-router.get("/get-all-expense", protect, getAllExpense);
-router.get("/download-expense-excel", protect, downloadExpenseExcel);
+router.post("/add",protect, addExpense);
+router.get("/get", protect, getAllExpense);
+router.get("/download", protect, downloadExpenseExcel);
 router.delete("/:id", protect, deleteExpense);
 
 module.exports = router;
