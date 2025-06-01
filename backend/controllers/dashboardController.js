@@ -61,7 +61,7 @@ exports.getDashboardData = async(req , res) => {
                 type:"income",
             })),
 
-            ...(await Expense.find({userId}).sort({data:-1}).limit(5)).map((txn) => ({
+            ...(await Expense.find({userId}).sort({date:-1}).limit(5)).map((txn) => ({
                 ...txn.toObject(),
                 type:"expense",
 
