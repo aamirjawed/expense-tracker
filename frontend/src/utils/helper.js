@@ -1,3 +1,5 @@
+import moment from "moment";
+
 /* eslint-disable no-unused-vars */
 export const validateEmail = (email) => {
     const regex =  /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -37,4 +39,29 @@ export const prepareExpenseBarCharData = (data=[]) => {
     }));
 
     return charData
+}
+
+export const prepareIncomeBarChartData = (data = []) => {
+   const sortedData = [...data].sort((a,b) => new Date(a.date) - new Date(b.date))
+
+   const chartData = sortedData.map((item) => ({
+    month:moment(item?.date).format("DD MM "),
+    amount:item?.amount,
+    source:item?.source
+   }))
+
+   return chartData
+}
+
+
+export const prepareExpenseLineBarChartData = (data =[]) => {
+    const sortedData = [...data].sort((a,b) => new Date(a.date) - new Date(b.date))
+
+    const chartData = sortedData.map((item) =>  ({
+        month:moment(item?.date).format("DD MM YYYY"),
+        amount:item?.amount,
+        category:item?.category
+    }))
+
+    return chartData
 }

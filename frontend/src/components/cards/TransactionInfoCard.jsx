@@ -9,7 +9,7 @@ import {
 } from 'react-icons/lu'
 
 const TransactionInfoCard = ({
-    title,icon,date,amount, type, hideDeleteBtn,
+    title,icon,date,amount, type, hideDeleteBtn,onDelete
 }) => {
 
     const getAmountStyles = () => 
